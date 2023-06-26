@@ -1,9 +1,12 @@
 import React from 'react';
 import './scss/app.scss';
 import Header from './Components/Header';
-import Category from './Components/Categories';
 import Sort from './Components/Sort';
 import PizzaBlock from './Components/PizzaBlock';
+import Categories from './Components/Categories';
+import pizzas from './assets/pizzas.json';
+
+console.log(pizzas);
 
 function App() {
   return (
@@ -12,14 +15,14 @@ function App() {
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <Category />
+            <Categories />
             <Sort />
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <PizzaBlock title="Мексиканская" price={500} />
-            <PizzaBlock title="Четыре сыра" price={350} />
-            <PizzaBlock title="Салями" price={450} />
+            {pizzas.map((obj) => (
+              <PizzaBlock title={obj.title} price={obj.price} image={obj.imageUrl} />
+            ))}
           </div>
         </div>
       </div>
