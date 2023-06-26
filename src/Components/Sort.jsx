@@ -4,6 +4,12 @@ function Sort() {
   const [open, setOpen] = React.useState(false);
   const list = ['популярности', 'цене', 'алфавиту'];
   const [activeList, setActiveList] = React.useState(0);
+  const listName = list[activeList];
+
+  const onClickListItem = (index) => {
+    setActiveList(index);
+    setOpen(false);
+  };
 
   return (
     <div className="sort">
@@ -20,7 +26,7 @@ function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>популярности</span>
+        <span onClick={() => setOpen(!open)}>{listName}</span>
       </div>
 
       {open && (
@@ -29,7 +35,7 @@ function Sort() {
             {list.map((name, index) => (
               <li
                 key={list}
-                onClick={() => setActiveList(index)}
+                onClick={() => onClickListItem(index)}
                 className={activeList === index ? 'active' : ''}>
                 {name}
               </li>
