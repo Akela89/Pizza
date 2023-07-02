@@ -20,9 +20,9 @@ function Home() {
 
     const sortBy = sortType.sort.replace('-', '');
     const order = sortType.sort.includes('-') ? 'ask' : 'desc';
-    const catigories = categoriesID > 0 ? `categories=${categoriesID}` : '';
+    const categories = categoriesID > 0 ? `category=${categoriesID}` : '';
     fetch(
-      `https://649ad76dbf7c145d0239920e.mockapi.io/items?${catigories}&sortBy=${sortBy}&order=${order}`,
+      `https://649ad76dbf7c145d0239920e.mockapi.io/items?${categories}&sortBy=${sortBy}&order=${order}`,
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -39,7 +39,7 @@ function Home() {
           value={categoriesID}
           onClickCategories={(indexCategories) => setCategoriesID(indexCategories)}
         />
-        <Sort value={sortType} onClickSort={(indexCategories) => setSortType(indexCategories)} />
+        <Sort value={sortType} onClickSort={(indexSort) => setSortType(indexSort)} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
