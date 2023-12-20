@@ -1,8 +1,8 @@
 {
   "name": "pizza",
   "version": "0.1.0",
-  "homepage": "https://Akela89.github.io/Pizza",
   "private": true,
+  "homepage": "https://Akela89.github.io/Pizza",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
